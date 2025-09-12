@@ -3907,3 +3907,181 @@ input, select, textarea {
 			}
 
 		}
+
+/* ==== Stone & Clay Theme Overrides (warm, classical) ==== */
+:root{
+  --stone-0: #FFF8EE;   /* lightest wash */
+  --stone-1: #F3EBDD;   /* soft plaster */
+  --stone-2: #E7DECE;   /* aged limestone */
+  --stone-3: #D9CEBB;   /* deeper panel */
+  --stone-4: #B9AB96;   /* trim/shadow */
+  --text-strong: #2E281F;   /* warm deep brown */
+  --text: rgba(46,40,31,.82);
+  --muted: rgba(46,40,31,.60);
+  --border: rgba(46,40,31,.16);
+  --border-strong: rgba(46,40,31,.26);
+
+  /* clay accent (tennis-court feel) */
+  --clay: #8B5E3C;          /* primary accent */
+  --clay-soft: #C89B74;     /* hover / subtle fills */
+  --focus-ring: rgba(200,155,116,.35);
+}
+
+/* Base */
+body{
+  background:
+    radial-gradient(1200px 600px at 70% -10%, rgba(0,0,0,.035), transparent 60%),
+    linear-gradient(180deg, var(--stone-0), var(--stone-1));
+  color: var(--text);
+}
+
+/* Typography */
+h1,h2,h3,h4,h5,h6{ color: var(--text-strong); }
+strong,b{ color: var(--text-strong); }
+a{
+  color: #5A4A36;
+  border-bottom: dotted 1px rgba(46,40,31,.35);
+}
+a:hover{ color: #3D3327; border-bottom-color: transparent; }
+
+/* Section wrappers (replace vibrant fills with stone tones) */
+.wrapper,
+.wrapper.style1,
+.wrapper.style1-alt,
+.wrapper.style2,
+.wrapper.style2-alt,
+.wrapper.style3,
+.wrapper.style3-alt{
+  background-color: var(--stone-1);
+}
+.wrapper.alt{ background-color: var(--stone-2); }
+
+/* “major” underline uses clay gradient */
+h1.major:after{
+  background-image: linear-gradient(to right, var(--clay-soft), var(--clay));
+}
+
+/* Header */
+#header{
+  background-color: var(--stone-2);
+  border-bottom: 1px solid var(--border);
+}
+#header > .title{ color: var(--text-strong); }
+#header > nav > ul > li a{ color: var(--muted); }
+#header > nav > ul > li a:hover{ color: var(--text); }
+#header > nav > ul > li a.active{ color: var(--text-strong); }
+
+/* Sidebar */
+#sidebar{
+  background: var(--stone-2);
+  border-right: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  color: var(--text);
+}
+#sidebar nav a{ color: var(--muted); }
+#sidebar nav a:before{ background: rgba(46,40,31,.06); }
+#sidebar nav a:after{ background-color: var(--clay); }
+#sidebar nav a:hover{ color: var(--text); }
+#sidebar nav a.active{ color: var(--text-strong); }
+
+/* Boxes, features, cards */
+.box{
+  background: var(--stone-0);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(0,0,0,.03), 0 12px 32px rgba(0,0,0,.06);
+}
+.features{
+  background: var(--stone-1);
+  border: 1px solid var(--border);
+}
+.features section{
+  border-top: 1px solid var(--border);
+}
+.features section:nth-child(2n){
+  border-left: 1px solid var(--border);
+}
+.icon.major{
+  background: var(--stone-0);
+  color: var(--text-strong);
+  box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 8px 22px rgba(0,0,0,.08);
+}
+
+/* Buttons */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"]{
+  background: linear-gradient(180deg, var(--stone-0), var(--stone-1));
+  border-color: var(--border-strong) !important;
+  color: var(--text-strong) !important;
+}
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover{
+  border-color: var(--text) !important;
+}
+.button.primary,
+button.primary,
+input[type="submit"].primary{
+  background-color: var(--clay);
+  color: #FFF6ED !important;
+}
+.button.primary:hover{ filter: brightness(1.05); }
+.button.primary:after{ display:none; }
+
+/* Forms */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea{
+  background: var(--stone-0);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus{
+  border-color: var(--clay-soft);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+select option{
+  color: var(--text-strong);
+  background: var(--stone-0);
+}
+
+/* Tables */
+table thead{ border-bottom: 2px solid var(--border); }
+table tbody tr{ border-color: var(--border); }
+table tbody tr:nth-child(2n + 1){ background-color: rgba(46,40,31,.035); }
+table th{ color: var(--text-strong); }
+
+/* Dividers & quotes */
+hr{ border-bottom: 1px solid var(--border); }
+blockquote{
+  border-left: 4px solid var(--clay-soft);
+  color: #4B4236;
+}
+
+/* Spotlights (subtle depth bands) */
+.spotlights > section:nth-child(2){ background-color: rgba(46,40,31,.04); }
+.spotlights > section:nth-child(3){ background-color: rgba(46,40,31,.06); }
+
+/* Intro: remove purple svg, keep gentle vignette */
+#intro{
+  background: radial-gradient(1400px 700px at 100% -10%, rgba(0,0,0,.05), transparent 60%),
+              var(--stone-1);
+}
+#intro p{ color: var(--text); }
+
+/* Links in footer/menu */
+#footer > .inner .menu{ color: rgba(46,40,31,.45); }
+#footer > .inner a{ border-bottom-color: rgba(46,40,31,.3); }
+#footer > .inner a:hover{ border-bottom-color: transparent; }
